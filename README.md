@@ -1,5 +1,5 @@
 # testwdio
-Start a project with Docus
+*Start a project with Docus
 You can use this template to create a new project.
 
 If you want to add Docus to an existing codebase, you can do so with:
