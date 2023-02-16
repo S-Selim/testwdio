@@ -31,11 +31,15 @@ npm init –y
 
 You can install WebdriverIO using NPM, the Node.js package manager. Follow the steps below to install WebdriverIO:
 
-Open a terminal or command prompt.
-Create a new directory for your project and navigate to it.
-Run the following command to initialize a new Node.js project: npm init -y
+```bash
+npm install @wdio/cli
+```
 
-Run the following command to install WebdriverIO: npm install webdriverio --save-dev
+## Create Webdriver configuration
+
+```bash
+npx wdio config
+```
 
 ## Writing your first test
 
@@ -49,7 +53,10 @@ This code will open Google in the Chrome browser, retrieve the page title, and l
 
 3- Open a terminal or command prompt and navigate to your project directory.
 
-4- Run the following command to execute the test: npx wdio ./test.js
+4- Run the following command to execute the test: \* npx wdio ./test.js
+OR
+
+- npx wdio wdio.conf.js
 
 ```bash
   const { remote } = require('webdriverio');
