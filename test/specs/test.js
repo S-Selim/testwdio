@@ -14,8 +14,14 @@ describe("Google homepage", async () => {
   it("Login Page", async () => {
     //Webdriverio Async
 
-    await browser.url("https://www.google.com");
+    await browser.url("https://rahulshettyacademy.com/loginpagePractise/");
+
     console.log(await browser.getTitle());
-    await expect(browser).toHaveTitleContaining("google google.com");
+    await expect(browser).toHaveTitleContaining("Rahul Shetty Academy");
+    //Css Selector, Xpath
+    await $("input[name='username']").setValue(Hello);
+    await browser.pause(3000);
+    await $("#username").setValue(secondCSS);
+    await browser.pause(3000);
   });
 });
