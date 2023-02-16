@@ -53,7 +53,10 @@ This code will open Google in the Chrome browser, retrieve the page title, and l
 
 3- Open a terminal or command prompt and navigate to your project directory.
 
-4- Run the following command to execute the test: \* npx wdio ./test.js
+4- Run the following command to execute the test:
+
+\*npx wdio ./test.js
+
 OR
 
 - npx wdio wdio.conf.js
