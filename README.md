@@ -55,7 +55,7 @@ This code will open Google in the Chrome browser, retrieve the page title, and l
 
 4- Run the following command to execute the test:
 
-\*npx wdio ./test.js
+- npx wdio ./test.js
 
 OR
 
