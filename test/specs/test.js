@@ -29,7 +29,12 @@ describe("Google homepage", async () => {
     const password = $("//input[@type='password']");
     await password.setValue("learning");
     await $("#signInBtn").click();
-    await browser.pause(3000);
+    //await browser.pause(3000);
     await console.log(await $(".alert-danger").getText());
+    browser.waitUntil(()=>{},
+    
+
+
+
   });
 });
