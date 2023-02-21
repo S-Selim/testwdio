@@ -12,6 +12,7 @@ describe("Google homepage", () => {
 //Test 002
 // id - #id - #username
 // class name - .className
+//tagname
 describe("Google homepage", async () => {
   it("Login Page", async () => {
     //Webdriverio Async
@@ -21,9 +22,14 @@ describe("Google homepage", async () => {
     console.log(await browser.getTitle());
     await expect(browser).toHaveTitleContaining("Rahul Shetty Academy");
     //Css Selector, Xpath
-    await $("input[name='username']").setValue(Hello);
+    await $("input[name='username']").setValue(rahulshettyacademy);
     //await browser.pause(3000);
     await $("#username").setValue(secondCSS);
     //await browser.pause(3000);
+    const password = $("//input[@type='password']");
+    await password.setValue("learning");
+    await $("#signInBtn").click();
+    await browser.pause(3000);
+    await console.log(await $(".alert-danger").getText());
   });
 });
