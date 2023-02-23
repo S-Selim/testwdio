@@ -20,8 +20,12 @@ describe("Ecommerce Application", async () => {
       }
     );
     await console.log(await $(".alert-danger").getText());
-    //     await expect($("p")).toHaveTextContaining(
-    //       "username is rahulshettyacademy and Password is learning"
+
+    await expect($("p")).toHaveTextContaining(
+      "username is rahulshettyacademy and Password is learning"
+    );
+    //   });
+
     //     );
     //   });
 
