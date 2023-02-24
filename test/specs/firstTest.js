@@ -24,27 +24,39 @@ describe("Ecommerce Application", async () => {
     await expect($("p")).toHaveTextContaining(
       "username is rahulshettyacademy and Password is learning"
     );
-    //   });
+  });
 
-    //     );
-    //   });
+  //   );
+  // });
 
-    //   it("Login Fail page title Smoke", async () => {
-    //     await browser.url("/loginpagePractise/");
-    //     console.log(await browser.getTitle());
+  // it("Login Fail page title Smoke", async () => {
+  //   await browser.url("/loginpagePractise/");
+  //   console.log(await browser.getTitle());
 
-    //     await expect(browser).toHaveTitleContaining("Rahul Shetty Academy");
-    //   });
+  //   await expect(browser).toHaveTitleContaining("Rahul Shetty Academy");
+  // });
 
-    //   it("Login Success page title", async () => {
-    //     browser.url("/loginpagePractise/");
-    //     await $("input[name='username']").setValue("rahulshettyacademy");
-    //     const password = $("//input[@type='password']");
-    //     await password.setValue("learning");
-    //     await $("#signInBtn").click();
-    //     //wait until checkout button is displayed
-    //     await $(".btn-primary").waitForExist();
-    //     await expect(browser).toHaveUrlContaining("shop");
-    //     await expect(browser).toHaveTitle("ProtoCommerce");
+  //   it("Login Success page title", async () => {
+  //     browser.url("/loginpagePractise/");
+  //     await $("input[name='username']").setValue("rahulshettyacademy");
+  //     const password = $("//input[@type='password']");
+  //     await password.setValue("learning");
+  //     await $("#signInBtn").click();
+  //     //wait until checkout button is displayed
+  //     await $(".btn-primary").waitForExist();
+  //     await expect(browser).toHaveUrlContaining("shop");
+  //     await expect(browser).toHaveTitle("ProtoCommerce");
+  //   });
+  // });
+  it("Loogin Success page title", async () => {
+    await browser.url("https://rahulshettyacademy.com/loginpagePractise/");
+    await $('input[name="username"]').setValue("rahulshettyacademy");
+    const password = $('//input[@type="password"]');
+    await password.setValue("learning");
+    await $("#signInBtn").click();
+    //wait until checkout button is displayed
+    await $(".btn-primary").waitForExist();
+    await expect(browser).toHaveUrlContaining("shop");
+    await expect(browser).toHaveTitle("ProtoCommerce");
   });
 });
