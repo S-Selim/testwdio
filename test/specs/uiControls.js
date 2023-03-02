@@ -11,7 +11,13 @@ describe("UI Controls Test Suite", async () => {
     const userDropdown = radioButtons[1];
     await userDropdown.$("span").click();
     await browser.pause(4000);
-    //chaining locators-
+    // chaining locators-
+    const modal = await $(".modal-body");
+    await modal.waitForDisplayed();
+    await $("#cancelBtn").click();
+    console.log(await $$(".customradio")[0].$("span").isSelected());
+    await userDropdown.$("span").click();
+
     //   const modal = await $(".modal-body");
     //   await modal.waitForDisplayed();
     //   await $("#cancelBtn").click();
