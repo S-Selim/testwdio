@@ -17,6 +17,13 @@ describe("UI Controls Test Suite", async () => {
     await $("#cancelBtn").click();
     console.log(await $$(".customradio")[0].$("span").isSelected());
     await userDropdown.$("span").click();
+    await modal.waitForDisplayed();
+    await $("#okayBtn").click();
+    //validate pop up not shown up when you select admin
+    await $$(".customradio")[0].$("span").click();
+    await expect(modal).not.toBeDisplayed();
+    const dropdown = await $("select.form-control"); //select tag
+    await dropdown.selectByAttribute("value", "teach");
 
     //   const modal = await $(".modal-body");
     //   await modal.waitForDisplayed();
