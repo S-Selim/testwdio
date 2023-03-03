@@ -30,7 +30,7 @@ describe("UI Controls Test Suite", async () => {
   //chai assertion library
 
   xit("Dynamic Dropdown Controls Smoke", async () => {
-    await browser.url("/AutomationPractice/");
+    await browser.url("https://rahulshettyacademy.com/loginpagePractise/");
     await $("#autocomplete").setValue("ind");
     await browser.pause(3000);
     let items = await $$("[class='ui-menu-item'] div");
