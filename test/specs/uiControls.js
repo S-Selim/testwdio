@@ -2,7 +2,7 @@ const expectchai = require("chai").expect;
 
 describe("UI Controls Test Suite", async () => {
   xit("UI Controls sanity", async () => {
-    await browser.url("/loginpagePractise/#");
+    await browser.url("https://rahulshettyacademy.com/loginpagePractise/");
     await $("input[name='username']").setValue("rahulshettyacademy");
     const password = $("//input[@type='password']");
     await password.setValue("learning");
@@ -27,6 +27,8 @@ describe("UI Controls Test Suite", async () => {
     console.log(await dropdown.getValue());
     expectchai(await dropdown.getValue()).to.equal("stud");
   });
+  //chai assertion library
+
   xit("Dynamic Dropdown Controls Smoke", async () => {
     await browser.url("/AutomationPractice/");
     await $("#autocomplete").setValue("ind");
