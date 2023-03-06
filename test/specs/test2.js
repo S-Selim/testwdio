@@ -153,3 +153,66 @@
 //     expect(cartCount).toHaveTextContaining("1");
 //   });
 // });
+// describe("Google search for Amazon and scroll down the page", () => {
+//   it("should be able to search for Amazon on Google", () => {
+//     // Navigate to Google and search for Amazon
+//     browser.url("https://www.google.com/");
+//     const searchInput = $('[name="q"]');
+//     const searchButton = $('[name="btnK"]');
+
+//     searchInput.setValue("Amazon");
+//     searchButton.click();
+
+//     // Verify that the first search result is for Amazon
+//     const firstResultLink = $('a[href*="www.amazon.com"]');
+//     expect(firstResultLink).toHaveAttribute("href", "https://www.amazon.com/");
+//   });
+
+//   it("should be able to click on the Amazon search result and scroll down the page", () => {
+//     // Click on the first Amazon search result and scroll down the page
+//     const firstResultLink = $('a[href*="www.amazon.com"]');
+//     firstResultLink.click();
+
+//     browser.pause(1000); // Wait for page to load
+
+//     browser.execute("window.scrollTo(0, document.body.scrollHeight)");
+//     browser.pause(1000); // Wait for page to scroll down
+//   });
+// });
+
+const puppeteer = require("puppeteer");
+
+(async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
+  // Navigate to Google
+  await page.goto("https://www.google.com");
+
+  // Search for Amazon
+  const searchBox = await page.$('[name="q"]');
+  await searchBox.type("Amazon");
+  await searchBox.press("Enter");
+  await page.waitForNavigation();
+
+  // Click on the first search result
+  await page.click("h3 > a");
+  await page.waitForNavigation();
+
+  // Search for a random product and go to its page
+  const randomProduct = "iPhone"; // Replace this with code to get a random product
+  const productSearchBox = await page.$("#twotabsearchtextbox");
+  await productSearchBox.type(randomProduct);
+  await productSearchBox.press("Enter");
+  await page.waitForNavigation();
+  const productLink = await page.$eval("h2 a", (link) => link.href);
+  await page.goto(productLink);
+
+  // Add the product to the cart
+  const addToCartButton = await page.$("#add-to-cart-button");
+  await addToCartButton.click();
+  await page.waitForNavigation();
+
+  // Close the browser
+  await browser.close();
+})();
